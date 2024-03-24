@@ -12,7 +12,7 @@ function solution(coins, sum) {
   let answer = 0;
   let add = sum;
 
-  for (item of coins) {
+  for (let item of coins) {
     while (add / item >= 1) {
       answer++;
       add -= item;

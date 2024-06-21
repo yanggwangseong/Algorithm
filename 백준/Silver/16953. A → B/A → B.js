@@ -43,20 +43,19 @@ function BFS(S, E) {
   let answer = -1;
 
   const queue = new Queue();
-  queue.enqueue(S);
-  queue.enqueue(1); // count
+  queue.enqueue([S, 1]);
 
   while (queue.size()) {
-    let x = queue.dequeue();
-    let count = queue.dequeue();
+    let [x, count] = queue.dequeue();
+
+    if (x === E) return count;
 
     for (let move of [x * 2, `${x}${1}`]) {
       move = parseInt(move);
-      if (move === E) return count + 1;
+      //if (move === E) return count + 1;
 
       if (move <= E) {
-        queue.enqueue(move);
-        queue.enqueue(count + 1);
+        queue.enqueue([move, count + 1]);
       }
     }
   }

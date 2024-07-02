@@ -59,24 +59,24 @@ function BFS(start) {
     if (map[x][y] === "k") kx++;
     else if (map[x][y] === "v") vx++;
 
-    if (map)
-      for (let k = 0; k < 4; k++) {
-        const nx = x + dx[k];
-        const ny = y + dy[k];
+    //if (map)
+    for (let k = 0; k < 4; k++) {
+      const nx = x + dx[k];
+      const ny = y + dy[k];
 
-        if (
-          nx < 0 ||
-          nx >= N ||
-          ny < 0 ||
-          ny >= M ||
-          map[nx][ny] == "#" ||
-          visited[nx][ny]
-        )
-          continue;
+      if (
+        nx < 0 ||
+        nx >= N ||
+        ny < 0 ||
+        ny >= M ||
+        map[nx][ny] == "#" ||
+        visited[nx][ny]
+      )
+        continue;
 
-        visited[nx][ny] = true;
-        queue.enqueue([nx, ny]);
-      }
+      visited[nx][ny] = true;
+      queue.enqueue([nx, ny]);
+    }
   }
 
   if (kx > vx) sheepCnt += kx;

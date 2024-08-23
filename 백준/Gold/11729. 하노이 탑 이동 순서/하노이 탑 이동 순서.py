@@ -1,12 +1,12 @@
-def tower(n, start, end):
-    if n== 1:
-        print(start, end)
-        return
-    
-    tower(n-1, start, 6-start-end)
-    print(start, end)
-    tower(n-1, 6-start-end, end)
-
 n = int(input())
-print(2**n-1)
-tower(n, 1, 3)
+def top(n, a, b, c):
+    if n == 1:
+        print(a, c)
+    else:
+        top(n-1, a, c, b) 
+        print(a, c)
+        top(n-1, b, a, c)
+sum = 2 ** n - 1
+print(sum)
+
+top(n, 1, 2, 3)
